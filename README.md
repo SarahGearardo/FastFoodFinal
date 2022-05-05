@@ -40,6 +40,10 @@ If the data and time permit, we will also attempt to parse out types of restaura
 
 We will use SQLite to join and query the data. 
 
+## Communication
+
+We will be communicating primarily via our teams Slack channel and Zoom. 
+
 
 
 
