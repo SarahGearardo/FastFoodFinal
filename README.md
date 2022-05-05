@@ -7,7 +7,7 @@ In the US, fast food restaurants are generally thought of as "cheap food" and ar
 
 ## Reason
 
-We chose this topic because it sounded interesting and offered a good way to test assumptions around socio-economic status and food preferences. 
+We chose this topic because it sounded interesting and offered a good way to test assumptions around socio-economic status and food options. 
 
 ## Data Sources
 
