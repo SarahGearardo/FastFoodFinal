@@ -1,0 +1,15 @@
+CREATE TABLE income (
+State_ab CHAR(2),
+City VARCHAR,
+Zip_code VARCHAR,
+Lst Float,
+Lon Float,
+Mean INTEGER,
+Median INTEGER,
+Stdev INTEGER,
+Sum_w FLOAT,
+PRIMARY KEY (Zip_code)
+)
+
+
+     
