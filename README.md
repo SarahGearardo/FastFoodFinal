@@ -13,7 +13,7 @@ We chose this topic because it sounded interesting and offered a good way to tes
 
 1. Census Data on US Household Income Statistics for 2011-2015 sourced from Kaggle.com
 
-2. Restaurant locations either scraped from Yelp or their downloadable JSON file. (We are still investigating which is the best choice for us.)
+2. Restaurant locations scraped from Yelp.
 
 3. Wikipedia's list of the largest fast food chains globally, which we reduced to only companies with a US presence. 
 
