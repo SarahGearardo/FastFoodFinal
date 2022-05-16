@@ -9,13 +9,6 @@ __pycache__/
 # Our Extras
 config.py
 old code
-Results_four_to_six.csv
-Results_one_to_two.csv
-Results_to_1000.csv
-Results_two_to_four_wrong.csv
-zips_beg_w_zero.csv
-zips_six_to_seven.csv
-zips_two_to_four.csv
 large_and_tiny_groupings
 
 # Distribution / packaging
