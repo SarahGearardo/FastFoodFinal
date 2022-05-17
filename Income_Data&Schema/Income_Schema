@@ -11,5 +11,13 @@ Sum_w FLOAT,
 PRIMARY KEY (Zip_code)
 )
 
+------------------------------
+CREATE TABLE yelp2 (
+Name VARCHAR,
+Type VARCHAR,
+Address VARCHAR,
+Zip_Code VARCHAR
+)
+
 
      
