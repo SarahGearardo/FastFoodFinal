@@ -1,0 +1,40 @@
+
+-- Creating table for HH Income
+CREATE TABLE Household_Income (
+     state_ab VARCHAR,
+     city VARCHAR,
+	 zip_code VARCHAR,
+	 latitude FLOAT,
+	 longitude FLOAT,
+	 median VARCHAR,
+	 stdev VARCHAR,
+     PRIMARY KEY (zip_code)
+);
+
+
+drop table Household_Income cascade;
+drop table yelp_restaurants cascade;
+
+ 
+-- Creating table for Yelp FF Restaurants
+CREATE TABLE Yelp_Restaurants (
+     res_name VARCHAR,
+     res_type VARCHAR,
+	 address VARCHAR,
+	 zip_codes VARCHAR
+);
+
+drop table joined_db cascade;
+
+-- Joining the two tables on Zip Code
+SELECT *  
+INTO joined_tables
+FROM yelp_restaurants as yp
+LEFT JOIN household_income as hi
+ON (yp.zip_codes = hi.zip_code);
+
+select * from household_income;
+select * from yelp_restaurants;
+
+select * from joined_tables;
+
