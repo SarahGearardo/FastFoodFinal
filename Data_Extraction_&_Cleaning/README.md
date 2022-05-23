@@ -38,7 +38,7 @@ If the data and time permit, we will also attempt to parse out types of restaura
 
 ## Database
 
-We will use Postgres and PgAdmid to join and query the data. 
+We will use Postgres and PgAdmin to join and query the data. 
 
 
 ## Limitations

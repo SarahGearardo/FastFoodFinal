@@ -10,6 +10,10 @@ __pycache__/
 config.py
 old code
 large_and_tiny_groupings
+backup.sql
+All_Data.ipynb
+res_density.csv
+Parsing_Food_Types.ipynb
 
 # Distribution / packaging
 .Python
