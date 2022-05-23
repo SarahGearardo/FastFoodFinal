@@ -5,6 +5,8 @@
 
 In the US, fast food restaurants are generally thought of as "cheap food" and are often associated with low-income areas in people's minds. We will use machine learning to investigate if there is indeed a significant correlation between median income and density of chain fast food restaurants (CFFRs) by zip code. 
 
+We chose a subset of eight states (CA, CO, FL, IL, NY, TN, TX, and VA) to run our analysis on in order to keep the scope of the project manageable, given the project's time constraints.
+
 ## Reason
 
 We chose this topic because it sounded interesting and offered a good way to test assumptions around socio-economic status and food options. 
@@ -13,9 +15,7 @@ We chose this topic because it sounded interesting and offered a good way to tes
 
 1. Census Data on US Household Income Statistics for 2011-2015 sourced from Kaggle.com
 
-2. Restaurant locations either scraped from Yelp or their downloadable JSON file. (We are still investigating which is the best choice for us.)
-
-3. Wikipedia's list of the largest fast food chains globally, which we reduced to only companies with a US presence. 
+2. Restaurant locations scraped from Yelp.
 
 
 ## Hypothesis
@@ -38,7 +38,13 @@ If the data and time permit, we will also attempt to parse out types of restaura
 
 ## Database
 
-We will use SQLite to join and query the data. 
+We will use Postgres and PgAdmid to join and query the data. 
+
+
+## Limitations
+- We are dependent on Yelp for what constitutes a "fast food" restaurant. 
+- There could be duplicates in the Yelp results.
+
 
 ## Communication
 
