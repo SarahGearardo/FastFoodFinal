@@ -46,6 +46,10 @@ We will use Postgres and PgAdmin to join and query the data.
 - There could be duplicates in the Yelp results.
 
 
+## Communication
+
+We will be communicating primarily via our teams Slack channel and Zoom. 
+
 
 
 
