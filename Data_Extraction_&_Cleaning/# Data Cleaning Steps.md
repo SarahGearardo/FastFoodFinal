@@ -7,7 +7,7 @@
 3. Added leading zeros where necessary so that all zip codes were five numbers in length.
 3. Visualized unique zip codes on a map using Google API.
 4. Created a list of the unique zip codes and exported that as a csv to use for the Yelp API requests.
-5. Subdivided that list of zip codes into several smaller csv files in an attempt to not surpass Yelp's limit of 5,000 API calls in a day. 
+5. Subdivided that list of zip codes into several smaller csv files in an attempt to avoid errors from Yelp's API.
 
 
 
@@ -22,7 +22,7 @@
   
      State  # of Zips   # of Results
    
-    - CA:      1,101        8,097
+    - CA:      1,101       10,261
     - CO:        228        2,393  
     - FL:        667          480  *ran this one twice because result was suspicously low but returned same amount
     - IL:        605        2,512
@@ -30,6 +30,8 @@
     - TN:        310          469
     - TX:      1,019        3,969
     - VA:        394        2,245
+
+Totals: 8      5,121       27,606  
 
 6. Used Python's "GLOB" to easily join all 10 files together into a single DataFrame.
     - It should be noted that there was some unexplained data loss at this point: the raw count of Yelp results was 27,606 but the DataFrame resulting from "globbing" all the files together only had 27,458 rows. In total, 148 results disappeared from the raw data. 
