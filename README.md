@@ -51,7 +51,8 @@ We will use Postgres and PgAdmin to join and query the data.
 We will be communicating primarily via our teams Slack channel and Zoom. 
 
 
-
+## Presentation
+[Group 5 Presentation Slides](https://docs.google.com/presentation/d/1PhhD7InvFKmFyU4L0sTeOg9N1bieIj3SBS_nOlqfc-4/edit#slide=id.p)
 
 
 
