@@ -1,0 +1,1 @@
+YELP_API_key = "zwg5C1Kw93RV-Fpn7MUkNIs4iuotkhJ3NZzlanbS6pQn60OueWxYjqHMzrQqpYDXCi-0UhAjrjWOnzWGwHEuEDTNAnJQgoCO6FtDs848028xOeHo-uQivVnEmat5YnYx"
