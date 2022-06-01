@@ -39,14 +39,22 @@ let baseMaps = {
 
 // 1. Add a 2nd layer group for the tectonic plate data.
 var allData = new L.LayerGroup();
-var HotDog = new L.LayerGroup();
 var exclOutData = new L.LayerGroup();
+var HotDog = new L.LayerGroup();
+var Burger = new L.LayerGroup();
+var Mexican = new L.LayerGroup();
+var Pizza = new L.LayerGroup();
+var Deli = new L.LayerGroup();
 
 // 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
-  "HotDog Locations": HotDog,
-  "Data excluding Outliers": exclOutData,
   "All Restaurants & Median Income": allData,
+  "Data excluding Outliers": exclOutData,
+  "HotDog Locations": HotDog,
+  "Burger Locations": Burger,
+  "Mexican Locations": Mexican,
+  "Pizza Locations": Pizza,
+  "Deli Locations": Deli,
 };
 
 // Then we add a control to the map that will allow the user to change which
@@ -279,5 +287,265 @@ onEachFeature: function(feature, layer) {
 }).addTo(HotDog);
 // 8. Add the major earthquakes layer to the map.
   HotDog.addTo(map);
+// 9. Close the braces and parentheses for the major earthquake data. 
+});
+
+// 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
+d3.json(FFData).then(function(data) {
+  // 4. Use the same style as the earthquake data.
+function styleBurger(feature) {
+  return {
+  opacity: 1,
+  fillOpacity: 1,
+  fillColor: getCol(feature.properties.median),
+  color: "#000000",
+  radius: getRad(feature.properties.median),
+  stroke: false,
+  weight: 0.0001
+  };
+}
+
+  // 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.
+function getCol(median) {
+if (median > 299999) {
+  return "rgba(255,255,255,0.00001)";
+}
+if (median > 240000) {
+  return "#ea822c";
+}
+if (median > 180000) {
+  return "#ee9c00";
+}
+if (median > 120000) {
+  return "#eecc00";
+}
+if (median > 60000) {
+  return "#d4ee00";
+}
+return "#98ee00";
+}
+  
+// 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
+// This function determines the radius of the earthquake marker based on its magnitude.
+// Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
+function getRad(median) {
+  if (median === 0) {
+  return 1;
+  }
+  return median * 0.0001;
+}
+// 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
+// sets the style of the circle, and displays the magnitude and location of the earthquake
+//  after the marker has been created and styled.
+L.geoJson(data, {
+pointToLayer: function(feature, latlng) {
+  console.log(data);
+  return L.circleMarker(latlng);
+},
+style: styleBurger,
+filter: function(feature, layer) {
+  return (feature.properties.res_type === "burgers")
+},
+onEachFeature: function(feature, layer) {
+  layer.bindPopup("Type: " + feature.properties.res_type + "<br>Name: " + feature.properties.res_name);
+}
+}).addTo(Burger);
+// 8. Add the major earthquakes layer to the map.
+  Burger.addTo(map);
+// 9. Close the braces and parentheses for the major earthquake data. 
+});
+
+// 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
+d3.json(FFData).then(function(data) {
+  // 4. Use the same style as the earthquake data.
+function styleMexican(feature) {
+  return {
+  opacity: 1,
+  fillOpacity: 1,
+  fillColor: getCol(feature.properties.median),
+  color: "#000000",
+  radius: getRad(feature.properties.median),
+  stroke: false,
+  weight: 0.0001
+  };
+}
+
+  // 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.
+function getCol(median) {
+if (median > 299999) {
+  return "rgba(255,255,255,0.00001)";
+}
+if (median > 240000) {
+  return "#ea822c";
+}
+if (median > 180000) {
+  return "#ee9c00";
+}
+if (median > 120000) {
+  return "#eecc00";
+}
+if (median > 60000) {
+  return "#d4ee00";
+}
+return "#98ee00";
+}
+  
+// 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
+// This function determines the radius of the earthquake marker based on its magnitude.
+// Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
+function getRad(median) {
+  if (median === 0) {
+  return 1;
+  }
+  return median * 0.0001;
+}
+// 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
+// sets the style of the circle, and displays the magnitude and location of the earthquake
+//  after the marker has been created and styled.
+L.geoJson(data, {
+pointToLayer: function(feature, latlng) {
+  console.log(data);
+  return L.circleMarker(latlng);
+},
+style: styleMexican,
+filter: function(feature, layer) {
+  return (feature.properties.res_type === "mex/tex-mex")
+},
+onEachFeature: function(feature, layer) {
+  layer.bindPopup("Type: " + feature.properties.res_type + "<br>Name: " + feature.properties.res_name);
+}
+}).addTo(Mexican);
+// 8. Add the major earthquakes layer to the map.
+  Mexican.addTo(map);
+// 9. Close the braces and parentheses for the major earthquake data. 
+});
+
+// 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
+d3.json(FFData).then(function(data) {
+  // 4. Use the same style as the earthquake data.
+function stylePizza(feature) {
+  return {
+  opacity: 1,
+  fillOpacity: 1,
+  fillColor: getCol(feature.properties.median),
+  color: "#000000",
+  radius: getRad(feature.properties.median),
+  stroke: false,
+  weight: 0.0001
+  };
+}
+
+  // 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.
+function getCol(median) {
+if (median > 299999) {
+  return "rgba(255,255,255,0.00001)";
+}
+if (median > 240000) {
+  return "#ea822c";
+}
+if (median > 180000) {
+  return "#ee9c00";
+}
+if (median > 120000) {
+  return "#eecc00";
+}
+if (median > 60000) {
+  return "#d4ee00";
+}
+return "#98ee00";
+}
+  
+// 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
+// This function determines the radius of the earthquake marker based on its magnitude.
+// Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
+function getRad(median) {
+  if (median === 0) {
+  return 1;
+  }
+  return median * 0.0001;
+}
+// 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
+// sets the style of the circle, and displays the magnitude and location of the earthquake
+//  after the marker has been created and styled.
+L.geoJson(data, {
+pointToLayer: function(feature, latlng) {
+  console.log(data);
+  return L.circleMarker(latlng);
+},
+style: stylePizza,
+filter: function(feature, layer) {
+  return (feature.properties.res_type === "pizza")
+},
+onEachFeature: function(feature, layer) {
+  layer.bindPopup("Type: " + feature.properties.res_type + "<br>Name: " + feature.properties.res_name);
+}
+}).addTo(Pizza);
+// 8. Add the major earthquakes layer to the map.
+  Pizza.addTo(map);
+// 9. Close the braces and parentheses for the major earthquake data. 
+});
+
+// 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
+d3.json(FFData).then(function(data) {
+  // 4. Use the same style as the earthquake data.
+function styleDeli(feature) {
+  return {
+  opacity: 1,
+  fillOpacity: 1,
+  fillColor: getCol(feature.properties.median),
+  color: "#000000",
+  radius: getRad(feature.properties.median),
+  stroke: false,
+  weight: 0.0001
+  };
+}
+
+  // 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.
+function getCol(median) {
+if (median > 299999) {
+  return "rgba(255,255,255,0.00001)";
+}
+if (median > 240000) {
+  return "#ea822c";
+}
+if (median > 180000) {
+  return "#ee9c00";
+}
+if (median > 120000) {
+  return "#eecc00";
+}
+if (median > 60000) {
+  return "#d4ee00";
+}
+return "#98ee00";
+}
+  
+// 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
+// This function determines the radius of the earthquake marker based on its magnitude.
+// Earthquakes with a magnitude of 0 were being plotted with the wrong radius.
+function getRad(median) {
+  if (median === 0) {
+  return 1;
+  }
+  return median * 0.0001;
+}
+// 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
+// sets the style of the circle, and displays the magnitude and location of the earthquake
+//  after the marker has been created and styled.
+L.geoJson(data, {
+pointToLayer: function(feature, latlng) {
+  console.log(data);
+  return L.circleMarker(latlng);
+},
+style: styleDeli,
+filter: function(feature, layer) {
+  return (feature.properties.res_type === "delis/diners")
+},
+onEachFeature: function(feature, layer) {
+  layer.bindPopup("Type: " + feature.properties.res_type + "<br>Name: " + feature.properties.res_name);
+}
+}).addTo(Deli);
+// 8. Add the major earthquakes layer to the map.
+  Deli.addTo(map);
 // 9. Close the braces and parentheses for the major earthquake data. 
 });
