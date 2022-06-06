@@ -10,7 +10,6 @@
 5. Subdivided that list of zip codes into several smaller csv files in an attempt to avoid errors from Yelp's API.
 
 
-
 ### Yelp API Results
 
 1. Created code with nested for loops to extract "fast food" restaurant names, adresseses, types, and zip codes from Yelp.
@@ -45,16 +44,14 @@ Totals: 8      5,121       27,606
  2. In deciding which of the two zip code columns to drop, discovered that the the HH Income file included 1,164 rows with null values for zip code. Since we dropped all null values during initial cleaning of that dataset, we assume that this must indicate that some restaurants were located in zip code areas that did not appear in the HH Income dataset. We changed our join from FULL to INNER to remove these null values, which further reduced our dataset to 12,084.
 
 
-
-
 ## ML
 
-We noticed when creating an initial scatter plot that the max median income caps out at 300,000 in the dataset. This could be a potential limitation to our analysis
+We noticed when creating an initial scatter plot that the max median income caps out at 300,000 in the dataset and that a large number of data points were clustered along that line. We thought this might be skewing the data so decided to run a second linear regression analysis without those points to see if they affected the relationship between our x and y values. 
 
 
 #### Notes 
 
-According to the US Census Bureau, USPS Zip codes are not physically- or politically-defined features but a collection of mail delivery routes. In other words, the only thing that distinguishes one zip code from another is the post office that services that area. Despite this, zip codes often represent a kind of proxy for socio-economic status.
+According to the US Census Bureau, USPS Zip codes are not physically- or politically-defined features but a collection of mail delivery routes. In other words, the only thing that distinguishes one zip code from another is the post office that services that area. Despite this, zip codes often represent a kind of proxy for socio-economic status because people of similar economic means tend to live near each other. 
 
 
 
