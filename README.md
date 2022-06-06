@@ -3,12 +3,12 @@
 
 ## Overview
 
-In the US, fast food restaurants are generally thought of as "cheap food" and are often associated with low-income areas in people's minds. We will use machine learning to investigate whether density of fast food restaurants (FFRs) can be used to predict median household income.  
+In the US, fast food restaurants (FFRs) are generally thought of as "cheap food" and are often associated with low-income areas in people's minds. We will use machine learning to investigate whether density of FFRs can be used to predict median household income.  
 
 
 ## Hypothesis
 
-We proposed that there is a strong negative correlation between density of CFFRs and median income level per zip code. 
+We proposed that there is a strong negative correlation between density of FFRs and median income level per zip code. 
 
 
 ## Data Sources
@@ -24,7 +24,7 @@ We chose a subset of eight states (CA, CO, FL, IL, NY, TN, TX, and VA) to run ou
 
 We used supervised learning for this project, specifically using a linear regression model to identify relationships between the data. 
 
-The hypothesis we tested is whether density of fast food restaurants (x) has an effect on the median income level (y) of the zip code we are considering. 
+The hypothesis we tested is whether density of FFRs (x) has an effect on the median income level (y) of the zip code we are considering. 
 
 We also parsed out the five most common types of restaurants and ran a multiple linear regression analysis on those to see if there were any differences between income levels for certain types of food. 
 
