@@ -3,13 +3,13 @@
 
 ## Overview
 
-In the US, fast food restaurants are generally thought of as "cheap food" and are often associated with low-income areas in people's minds. We will use machine learning to investigate if there is indeed a significant correlation between median income and density of chain fast food restaurants (CFFRs) by zip code. 
+In the US, fast food restaurants are generally thought of as "cheap food" and are often associated with low-income areas in people's minds. We will use machine learning to investigate whether density of fast food restaurants (FFRs) can be used to predict median household income.  
 
-We chose a subset of eight states (CA, CO, FL, IL, NY, TN, TX, and VA) to run our analysis on in order to keep the scope of the project manageable, given the project's time constraints.
 
-## Reason
+## Hypothesis
 
-We chose this topic because it sounded interesting and offered a good way to test assumptions around socio-economic status and food options. 
+We proposed that there is a strong negative correlation between density of CFFRs and median income level per zip code. 
+
 
 ## Data Sources
 
@@ -17,38 +17,36 @@ We chose this topic because it sounded interesting and offered a good way to tes
 
 2. Restaurant locations scraped from Yelp.
 
+We chose a subset of eight states (CA, CO, FL, IL, NY, TN, TX, and VA) to run our analysis on in order to keep the scope of the project manageable, given the project's time constraints.
 
-## Hypothesis
-
-We propose that there is a strong negative correlation between density of CFFRs and median income level per zip code. 
-
-## GitHub
-
-Description of communication protocols:
-
-We will use a combination of class Zoom time and group-specific Slack messaging as primary communication methods. When a disagreement arises, we will collaborate on a mutually-agreeable solution that includes all viewpoints and considerations. If we cannot resolve a concern, we will request guidance from a TA or the instructor, as appropriate. 
 
 ## Machine Learning
 
-We will use supervised learning for this project, specifically using a linear regression model to identify relationships between the data. 
+We used supervised learning for this project, specifically using a linear regression model to identify relationships between the data. 
 
-The hypothesis we want to test is whether density of fast food restaurants (x) has an effect on the median income level (y) of the zip code we are considering. 
+The hypothesis we tested is whether density of fast food restaurants (x) has an effect on the median income level (y) of the zip code we are considering. 
 
-If the data and time permit, we will also attempt to parse out types of restaurants to see if there are any differences in preference between income levels for certain chains or types of food. 
+We also parsed out the five most common types of restaurants and ran a multiple linear regression analysis on those to see if there were any differences between income levels for certain types of food. 
 
 ## Database
 
-We will use Postgres and PgAdmin to join and query the data. 
+We used Postgres and PgAdmin to join and query the data. 
 
 
 ## Limitations
-- We are dependent on Yelp for what constitutes a "fast food" restaurant. 
-- There could be duplicates in the Yelp results.
+
+- Discrepancy in time frame of data capture. Household Income is from 2011-2015 but the Yelp results are ostensibly current, as of last month
+- Unexplained data loss in the ETL process : 148 data points were dropped when we “globbed” the 8 csv files with Yelp results together in Pandas. It's a tiny fraction of the data but does it affect the results?
+- We only used eight states to run our analysis on. Are the states we randomly selected representative of the country as a whole?
+- Was our Yelp search radius appropriate for both rural and urban areas? We only searched a 5,000 meter radius for each zip code, which is approximately 3 miles. Is that really large enough to capture food options in rural areas?
+- What counts as “fast food” and what doesn’t? We were dependent on Yelp for what constitutes a "fast food" restaurant and it defintely returned some questionable results. 
 
 
-## Communication
+## Presentation
 
-We will be communicating primarily via our teams Slack channel and Zoom. 
+[Google Slides Version (without the map slide)](https://docs.google.com/presentation/d/1PhhD7InvFKmFyU4L0sTeOg9N1bieIj3SBS_nOlqfc-4/edit#slide=id.p)
+
+[PowerPoint version (with the map slide)](Group_5_Final_Project.pptx)
 
 
 ## Presentation

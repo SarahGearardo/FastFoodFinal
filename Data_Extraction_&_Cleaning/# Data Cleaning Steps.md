@@ -7,8 +7,7 @@
 3. Added leading zeros where necessary so that all zip codes were five numbers in length.
 3. Visualized unique zip codes on a map using Google API.
 4. Created a list of the unique zip codes and exported that as a csv to use for the Yelp API requests.
-5. Subdivided that list of zip codes into several smaller csv files in an attempt to not surpass Yelp's limit of 5,000 API calls in a day. 
-
+5. Subdivided that list of zip codes into several smaller csv files in an attempt to avoid errors from Yelp's API.
 
 
 ### Yelp API Results
@@ -22,7 +21,7 @@
   
      State  # of Zips   # of Results
    
-    - CA:      1,101        8,097
+    - CA:      1,101       10,261
     - CO:        228        2,393  
     - FL:        667          480  *ran this one twice because result was suspicously low but returned same amount
     - IL:        605        2,512
@@ -30,6 +29,8 @@
     - TN:        310          469
     - TX:      1,019        3,969
     - VA:        394        2,245
+
+Totals: 8      5,121       27,606  
 
 6. Used Python's "GLOB" to easily join all 10 files together into a single DataFrame.
     - It should be noted that there was some unexplained data loss at this point: the raw count of Yelp results was 27,606 but the DataFrame resulting from "globbing" all the files together only had 27,458 rows. In total, 148 results disappeared from the raw data. 
@@ -43,16 +44,14 @@
  2. In deciding which of the two zip code columns to drop, discovered that the the HH Income file included 1,164 rows with null values for zip code. Since we dropped all null values during initial cleaning of that dataset, we assume that this must indicate that some restaurants were located in zip code areas that did not appear in the HH Income dataset. We changed our join from FULL to INNER to remove these null values, which further reduced our dataset to 12,084.
 
 
-
-
 ## ML
 
-We noticed when creating an initial scatter plot that the max median income caps out at 300,000 in the dataset. This could be a potential limitation to our analysis
+We noticed when creating an initial scatter plot that the max median income caps out at 300,000 in the dataset and that a large number of data points were clustered along that line. We thought this might be skewing the data so decided to run a second linear regression analysis without those points to see if they affected the relationship between our x and y values. 
 
 
 #### Notes 
 
-According to the US Census Bureau, USPS Zip codes are not physically- or politically-defined features but a collection of mail delivery routes. In other words, the only thing that distinguishes one zip code from another is the post office that services that area. Despite this, zip codes often represent a kind of proxy for socio-economic status.
+According to the US Census Bureau, USPS Zip codes are not physically- or politically-defined features but a collection of mail delivery routes. In other words, the only thing that distinguishes one zip code from another is the post office that services that area. Despite this, zip codes often represent a kind of proxy for socio-economic status because people of similar economic means tend to live near each other. 
 
 
 
